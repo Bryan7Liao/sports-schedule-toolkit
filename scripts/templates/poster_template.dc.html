@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<title>__TEAM__ 2027 賽程日曆</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Barlow+Condensed:wght@600;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#555}a:hover{color:#222}
+</style>
+</helmet>
+<div style="width: 1200px; height: 2400px; box-sizing: border-box; background: #F7F6F2; font-family: 'Noto Sans TC', sans-serif; color: #24231F; display: flex; flex-direction: column">
+  <div style="position: relative; overflow: hidden; background: __PB__; color: __PF__; padding: 52px 64px 44px; display: flex; flex-direction: column; gap: 14px">
+    <div aria-hidden="true" style="position: absolute; right: -10px; top: -46px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 300px; line-height: 1; opacity: 0.14; letter-spacing: -4px">2027</div>
+    <div style="font-size: 22px; font-weight: 700; letter-spacing: 6px; opacity: 0.85">2027 中華職棒例行賽</div>
+    <div style="font-size: 96px; font-weight: 900; line-height: 1.05; letter-spacing: 2px">__TEAM__</div>
+    <div style="font-size: 26px; font-weight: 500; opacity: 0.9">全季賽程日曆　·　首戰 __OPENER__</div>
+    <div style="display: flex; gap: 12px; margin-top: 10px">
+      <div style="border: 2px solid currentColor; border-radius: 999px; padding: 8px 22px; font-size: 22px; font-weight: 700">主場 60</div>
+      <div style="border: 2px solid currentColor; border-radius: 999px; padding: 8px 22px; font-size: 22px; font-weight: 700">客場 60</div>
+      <div style="border: 2px solid currentColor; border-radius: 999px; padding: 8px 22px; font-size: 22px; font-weight: 700">全季 120 場</div>
+    </div>
+  </div>
+  <div style="background: #FFFFFF; border-bottom: 1px solid #E7E4DC; padding: 20px 64px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: 16px">
+    <div style="font-weight: 700; color: #5C5A53">主場</div>
+    <div style="background: __PB__; color: __PF__; border-radius: 8px; padding: 6px 14px; font-weight: 700">vs 對手</div>
+    <div style="width: 1px; height: 24px; background: #DDD9CF; margin: 0 6px"></div>
+    <div style="font-weight: 700; color: #5C5A53">客場（底色＝主場球隊）</div>
+    <sc-for list="{{legend}}" as="lg" hint-placeholder-count="5">
+      <div style="{{lg.s}}; border-radius: 8px; padding: 6px 12px; font-weight: 700">{{lg.n}}</div>
+    </sc-for>
+  </div>
+  <div style="padding: 32px 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+    <sc-for list="{{months}}" as="mo" hint-placeholder-count="8">
+      <div style="background: #FFFFFF; border: 1px solid #E7E4DC; border-radius: 18px; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: baseline; gap: 10px">
+          <div style="font-size: 28px; font-weight: 900">{{mo.m}}</div>
+          <div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 3px; color: #9C998F">{{mo.en}}</div>
+          <div style="margin-left: auto; font-size: 15px; font-weight: 700; color: #6E6B63">{{mo.cnt}}</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; font-size: 13px; font-weight: 700; color: #8A877F; text-align: center">
+          <div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+          <sc-for list="{{mo.cells}}" as="c" hint-placeholder-count="35">
+            <div style="{{c.s}}; height: 52px; border-radius: 8px; box-sizing: border-box; padding: 4px 5px; display: flex; flex-direction: column">
+              <div style="{{c.ds}}; font-size: 11px; font-weight: 700; line-height: 1.1">{{c.d}}</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; white-space: nowrap">{{c.l}}</div>
+              <div style="font-size: 10px; text-align: center; line-height: 1.1; margin-top: -14px">{{c.n}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="margin-top: auto; padding: 0 64px 40px; display: flex; justify-content: space-between; font-size: 14px; color: #8A877F">
+    <div>資料來源：中華職棒大聯盟官網 2027 例行賽賽程公告（2026/11/24）</div>
+    <div>實際賽程以官方公告為準</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":2400}}'>
+const MONTHS = __DATA__;
+const LEGEND = __LEGEND__;
+class Component extends DCLogic {
+  renderVals() {
+    return { months: MONTHS, legend: LEGEND };
+  }
+}
+</script>
+</body>
+</html>
