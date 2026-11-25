@@ -1,0 +1,16 @@
+{
+  "name": "中華職棒 2027 例行賽",
+  "format": "league",
+  "season_start": "2027-03-27",
+  "season_end": "2027-10-06",
+  "total_games": 360,
+  "games_per_team": 120,
+  "home_games_per_team": 60,
+  "pair_games": 24,
+  "by_stage": {
+    "上半季": {"total_games": 180, "games_per_team": 60, "home_games_per_team": 30, "pair_games": 12},
+    "下半季": {"total_games": 180, "games_per_team": 60, "home_games_per_team": 30, "pair_games": 12}
+  },
+  "max_games_per_team_per_day": 1,
+  "min_contrast": 4.5
+}

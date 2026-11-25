@@ -1,0 +1,11 @@
+{
+  "name": "聯盟名稱 年度 例行賽",
+  "format": "league",
+  "season_start": "YYYY-MM-DD",
+  "season_end": "YYYY-MM-DD",
+  "total_games": 0,
+  "games_per_team": 0,
+  "home_games_per_team": 0,
+  "max_games_per_team_per_day": 1,
+  "min_contrast": 4.5
+}

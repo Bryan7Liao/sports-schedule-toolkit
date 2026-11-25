@@ -1,0 +1,12 @@
+{
+  "name": "國際賽名稱 年度（例：WBC、世界盃）",
+  "format": "tournament",
+  "season_start": "YYYY-MM-DD",
+  "season_end": "YYYY-MM-DD",
+  "group_stage_name": "分組賽",
+  "by_stage": {
+    "分組賽": {"total_games": 0}
+  },
+  "max_games_per_team_per_day": 1,
+  "min_contrast": 4.5
+}
